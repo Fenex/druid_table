@@ -858,7 +858,7 @@ impl Interp for StringInterp {
         true
     }
 
-    fn select_animation_segment(self, idx: AnimationId) -> Result<Self, Self> {
+    fn select_animation_segment(self, _idx: AnimationId) -> Result<Self, Self> {
         Err(self)
     }
 
@@ -954,11 +954,7 @@ impl Interp for ColorInterp {
 mod test {
     use super::*;
     use crate::interp::InterpHolder::*;
-    use crate::vis::{MarkInterp, MarkShapeInterp, TextMarkInterp};
-    use crate::{Mark, VisMarks};
-    use druid_widget_nursery::animation::AnimationEvent::Ended;
-    use druid_widget_nursery::animation::{AnimationEvent, AnimationId, Animator};
-    use std::mem::size_of;
+    use druid_widget_nursery::animation::{AnimationEvent::Ended, AnimationId, Animator};
     use std::num::NonZeroU32;
     use std::time::Duration;
 
@@ -1052,7 +1048,7 @@ mod test {
 
     #[test]
     fn test_merge_selected_overlap() {
-        simple_logger::init();
+        simple_logger::init().ok();
         let mut animator: Animator = Default::default();
 
         let ai_0 = animator
@@ -1100,7 +1096,7 @@ mod test {
                 [(ai_0_ex, _), (ai_1_ex, _)] if ai_0_ex == ai_0 && ai_1_ex == ai_1 => true,
                 _ => false,
             },
-            ex => false,
+            _ex => false,
         }) {
             panic!("{}", str)
         }

@@ -53,7 +53,7 @@ impl TableConfig {
             row_header_width: DEFAULT_ROW_HEADER_WIDTH.into(),
             header_background: theme::BACKGROUND_DARK.into(),
             header_selected_background: theme::PLACEHOLDER_COLOR.into(),
-            cells_background: theme::LABEL_COLOR.into(),
+            cells_background: theme::TEXT_COLOR.into(),
             cells_border: theme::BORDER_LIGHT.into(),
             cell_border_thickness: 0.5.into(),
             cell_padding: 2.0.into(),

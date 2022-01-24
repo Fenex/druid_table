@@ -1,6 +1,6 @@
 use druid_table::{
     AxisMeasure, AxisMeasurementType, AxisPair, CellCtx, CellRender, CellRenderExt, CellsDelegate,
-    EditorFactory, FixedAxisMeasure, HeaderBuild, HeadersFromIndices, IndexedData, IndexedItems,
+    EditorFactory, HeaderBuild, HeadersFromIndices, IndexedData, IndexedItems,
     LogIdx, Remap, RemapSpec, Remapper, SuppliedHeaders, Table, TableArgs, TableConfig, TextCell,
 };
 

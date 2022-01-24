@@ -9,14 +9,13 @@ use druid::im::{vector, Vector};
 use druid::kurbo::CircleSegment;
 use druid::theme::PLACEHOLDER_COLOR;
 use druid::widget::{
-    Button, Checkbox, CrossAxisAlignment, Flex, Label, MainAxisAlignment, Padding, RadioGroup,
-    SizedBox, Stepper, ViewSwitcher, Container,
+    Button, Checkbox, CrossAxisAlignment, Flex, Label, MainAxisAlignment, RadioGroup,
+    SizedBox, Stepper, ViewSwitcher,
 };
 use druid::{
-    AppLauncher, Data, Env, KeyOrValue, Lens, LensExt, LocalizedString, PaintCtx, Point,
+    Color, AppLauncher, Data, Env, KeyOrValue, Lens, LensExt, LocalizedString, PaintCtx, Point,
     RenderContext, Widget, WidgetExt, WindowDesc,
 };
-use druid::{Color, Value};
 use std::cmp::Ordering;
 use std::f64::consts::PI;
 
@@ -273,7 +272,7 @@ pub fn main() {
 
     // start the application
     AppLauncher::with_window(main_window)
-        .use_simple_logger()
+        .log_to_console()
         .launch(initial_state)
         .expect("Failed to launch application");
 }

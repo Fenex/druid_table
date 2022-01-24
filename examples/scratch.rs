@@ -1,12 +1,4 @@
-use druid::kurbo as k;
-use druid::widget::prelude::RenderContext;
-use druid::Color;
-use druid::{PaintCtx, Selector};
-use std::any::{Any, TypeId};
-
-enum AugmentationToken {
-    Plain(),
-}
+use std::any::{Any};
 
 trait Augmentation: 'static {}
 

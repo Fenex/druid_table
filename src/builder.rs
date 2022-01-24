@@ -72,11 +72,11 @@ impl<RowData: Data, TableData: IndexedData<Item = RowData, Idx = LogIdx>>
         TableBuilder {
             table_columns: Vec::<TableColumn<RowData, Box<dyn CellDelegate<RowData>>>>::new(),
             row_header_delegate: Box::new(
-                HeaderCell::new(TextCell::new().text_color(theme::LABEL_COLOR))
+                HeaderCell::new(TextCell::new().text_color(theme::TEXT_COLOR))
                     .on_result_of(|br: &LogIdx| br.0.to_string()),
             ),
             column_header_delegate: Box::new(HeaderCell::new(
-                TextCell::new().text_color(theme::LABEL_COLOR),
+                TextCell::new().text_color(theme::TEXT_COLOR),
             )),
             table_config: TableConfig::new(),
             phantom_td: PhantomData::default(),
