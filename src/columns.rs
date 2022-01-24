@@ -271,7 +271,7 @@ impl TextCell {
         let font: FontFamily = ctx
             .text()
             .font_family(&*self.font_name.resolve(env))
-            .unwrap(); // TODO errors / fallback
+            .unwrap_or(FontFamily::SYSTEM_UI); // TODO errors / fallback
         font
     }
 

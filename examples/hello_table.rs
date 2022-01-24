@@ -10,7 +10,7 @@ use druid::kurbo::CircleSegment;
 use druid::theme::PLACEHOLDER_COLOR;
 use druid::widget::{
     Button, Checkbox, CrossAxisAlignment, Flex, Label, MainAxisAlignment, Padding, RadioGroup,
-    SizedBox, Stepper, ViewSwitcher,
+    SizedBox, Stepper, ViewSwitcher, Container,
 };
 use druid::{
     AppLauncher, Data, Env, KeyOrValue, Lens, LensExt, LocalizedString, PaintCtx, Point,
@@ -185,7 +185,7 @@ fn decor<T: Data>(label: Label<T>) -> SizedBox<T> {
         .expand_width()
 }
 
-fn group<T: Data, W: Widget<T> + 'static>(w: W) -> Padding<T> {
+fn group<T: Data, W: Widget<T> + 'static>(w: W) -> impl Widget<T> {
     w.border(Color::WHITE, 0.5).padding(5.)
 }
 
@@ -246,7 +246,7 @@ fn build_table(settings: Settings) -> impl Widget<Vector<HelloRow>> {
 
 pub fn main() {
     // describe the main window
-    let main_window = WindowDesc::new(build_main_widget)
+    let main_window = WindowDesc::new(build_main_widget())
         .title(WINDOW_TITLE)
         .window_size((800.0, 500.0));
 

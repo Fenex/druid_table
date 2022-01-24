@@ -6,7 +6,7 @@ use druid::{
     BoxConstraints, Color, Data, Env, Event, EventCtx, LayoutCtx, LifeCycle, LifeCycleCtx,
     PaintCtx, UpdateCtx, Widget,
 };
-use druid_widget_nursery::animation::{AnimationEventName, SimpleCurve};
+use druid_widget_nursery::animation::{AnimationEventName, AnimationCurve};
 use itertools::Itertools;
 use std::collections::{BTreeSet, HashMap, VecDeque};
 use std::f64::consts::LN_10;
@@ -723,7 +723,7 @@ impl<V: Visualization> Vis<V> {
                 .animator
                 .new_animation()
                 .duration(Duration::from_millis(1000))
-                .curve(SimpleCurve::Linear)
+                .curve(AnimationCurve::LINEAR)
                 .id();
 
             let selected = interp.select_anim(id);
@@ -804,7 +804,7 @@ impl<V: Visualization> Widget<V::Input> for Vis<V> {
                                 .animator
                                 .new_animation()
                                 .duration(Duration::from_millis(2500))
-                                .curve(SimpleCurve::EaseOut)
+                                .curve(AnimationCurve::EASE_OUT)
                                 .after(Self::UNHOVER)
                                 .id();
 
@@ -844,7 +844,7 @@ impl<V: Visualization> Widget<V::Input> for Vis<V> {
                         .animator
                         .new_animation()
                         .duration(Duration::from_secs(3))
-                        .curve(SimpleCurve::OutElastic)
+                        .curve(AnimationCurve::EASE_OUT_ELASTIC)
                         .id();
                     let id = mark.id;
                     let start = inner.current.marks.entry(id).or_insert(mark.enter());
